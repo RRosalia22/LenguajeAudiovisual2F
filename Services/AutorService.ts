@@ -1,8 +1,9 @@
 import { Autor } from "../Entities/Autor";
-import { AutorRepository } from "../Repositories/AutorRepository";
+import { IAutorRepository } from "../Repositories/InterfaceAutorRepo";
+// Importa otras interfaces según sea necesario.
 
 export class AutorService {
-    constructor(private autorRepository: AutorRepository) {}
+    constructor(private autorRepository: IAutorRepository) {}
 
     agregarAutor(nombre: string, fechaNacimiento: Date): Autor {
         const autor = new Autor(Date.now(), nombre, fechaNacimiento);

@@ -1,10 +1,11 @@
 import { Libro } from "../Entities/Libro";
 import { LibroRepository } from "../Repositories/LibroRepository";
 import { AutorService } from "./AutorService";
+import { ErrorUtils } from "../Utils/Error";
 
 
 export class LibroService {
-    constructor(private libroRepository: LibroRepository, private autorService: AutorService) {}
+    constructor(private libroRepository: LibroRepository, private autorService: AutorService, private error: ErrorUtils) {}
 
     agregarLibro(titulo: string, autorId: number): Libro {
         const autor = this.autorService.obtenerAutor(autorId);
@@ -16,6 +17,11 @@ export class LibroService {
     }
 
     obtenerLibro(id: number): Libro | undefined {
-        return this.libroRepository.obtenerPorId(id);
+        const obtenido = this.libroRepository.obtenerPorId(id);
+        if(obtenido){
+            return obtenido
+        }else{
+            return this.error;
+        }
     }
 }

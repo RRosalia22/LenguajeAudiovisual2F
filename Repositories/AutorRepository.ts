@@ -1,6 +1,8 @@
 import { Autor } from "../Entities/Autor";
+import { IAutorRepository } from "../Repositories/InterfaceAutorRepo";
 
-export class AutorRepository {
+
+export class AutorRepository implements IAutorRepository {
     private autores: Autor[] = [];
 
     agregar(autor: Autor): void {
@@ -11,3 +13,7 @@ export class AutorRepository {
         return this.autores.find(a => a.id === id);
     }
 }
+
+///////////
+
+
