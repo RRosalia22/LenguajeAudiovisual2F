@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Cambiamos la fuente a una sans-serif */
+    text-align: center; /* Centramos el texto en el cuerpo de la página */
+}
+
+form {
+    display: inline-block; /* Mostramos el formulario en línea con el texto centrado */
+}
+
+#resultado {
+    margin-top: 20px; /* Añadimos un margen superior para separar el resultado del formulario */
+}
+
